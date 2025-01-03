@@ -156,7 +156,16 @@
 
             let currentValue="";
 
-            function evaluateResult(){
+            function evaluate(){
+                // console.log("CurrentValue:",currentValue);
+                const convert=currentValue
+                .replace("÷", "/")
+                .replace("×", "*")
+                .replace("%", "*0.01");
+                // console.log("ConvertedValue:",convert);
+                const result=eval(convert);
+                currentValue=result.toString();
+                display.value=currentValue;
                 
             }
 
@@ -172,7 +181,7 @@
                         currentValue="";
                         display.value=currentValue;
                     } else if(value == "="){
-                        evaluateResult();                        
+                        evaluate();                        
                     } else{
                         currentValue+=value;
                         display.value=currentValue;
