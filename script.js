@@ -12,7 +12,15 @@ document.addEventListener("DOMContentLoaded", function(){
         const convert=currentValue
         .replace("÷", "/")
         .replace("×", "*")
-        .replace("%", "*0.01");
+        .replace("%", "*0.01")
+        .replace("sin", "Math.sin")
+        .replace("cos", "Math.cos")
+        .replace("tan", "Math.tan")
+        .replace("√", "Math.sqrt")
+        .replace("π", "Math.PI")
+        .replace("log", "Math.log10")
+        .replace("ln", "Math.log")
+        .replace("e", "Math.E");
         // console.log("ConvertedValue:",convert);
         const result=eval(convert);
         currentValue=result.toString();
