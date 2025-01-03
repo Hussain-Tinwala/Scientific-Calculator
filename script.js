@@ -35,17 +35,26 @@ document.addEventListener("DOMContentLoaded", function(){
             // console.log("Button clicked:", button.innerText);
             const value= button.innerText;
 
-            if(value == "AC")
-            {
-                currentValue="";
-                display.value=currentValue;
-            } else if(value == "="){
-                evaluate();                        
-            } else{
-                currentValue+=value;
-                display.value=currentValue;
+            try{
 
+                if(value == "AC")
+                {
+                    currentValue="";
+                    display.value=currentValue;
+                } else if(value == "="){
+                    evaluate();                        
+                } else{
+                    currentValue+=value;
+                    display.value=currentValue;
+    
+                }
+            } catch(error)
+            {
+                // console.error(error);
+                currentValue="Error! Invalid Operation";
+                display.value=currentValue;
             }
+
             
         })
     }
